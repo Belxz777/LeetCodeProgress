@@ -76,3 +76,29 @@ function characterReplacement(s: string, k: number): number {
     // самое крутое решение дает 94 %
 }
 ```
+# Задачка 0307 перевернуть двухмерную матрицу на 90 градусов (матрица фикс равностороняя)
+## Я устал сегодня , так то есть решение без использования reverse() ,но оно не быстрее они оба на beat100% 
+<img width="1304" height="693" alt="image" src="https://github.com/user-attachments/assets/0167bdf7-5cb4-400f-abd2-c039b05a1696" />
+
+```ts
+/**
+ Do not return anything, modify matrix in-place instead.
+ */
+function rotate(matrix: number[][]): void {
+    let l = matrix.length
+
+    for(let i=0;i<l;i++){
+        for(let j=i+1;j<l;j++){
+            [matrix[i][j],matrix[j][i]] = [matrix[j][i],matrix[i][j]]
+        }
+    }
+
+    for(let i=0;i<l;i++){
+        matrix[i].reverse()
+    } 
+    // самый простой алгоритм использует просто swap 
+    // по сложности O(1) то  есть вообще ноль
+    // плюс: легко читаемый - минус: встроенный метод reverse
+    
+};
+```
